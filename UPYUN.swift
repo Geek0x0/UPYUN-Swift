@@ -12,7 +12,7 @@ import CryptoSwift
 
 /* 图片空间信息 */
 let ImageUploadURL: String = "http://v0.api.upyun.com"
-let ImageDownloadURL: String = "http://hui01.b0.upaiyun.com"
+let ImageDownloadURL: String = "http://"
 
 /* 请设置您的空间名称 和 操作员信息 */
 let SpaceName: String = ""
@@ -105,27 +105,10 @@ func uploadCallBack(imageNames: [String], data: AnyObject?) {
         for status in uploadStatus{
             if !status {
                 //Upload Failed
-                CreateAlertView(.error, titleText: "发布失败",
-                    messageText: "您的信息发布失败，上传图片失败", buttonTitle: "确定")
                 return
             }
         }
         //Upload Success
-        var picture_link: String = ""
-        for var index = 0; index < imageNames.count; index++ {
-            if index == 0 {
-                picture_link += "\(imageNames[index]).png"
-            } else {
-                picture_link += "|\(imageNames[index]).png"
-            }
-        }
-        if var json: [String: AnyObject] = data as? [String: AnyObject] {
-            //picture_link
-            json["picture_link"] = picture_link
-            publishMessage(nil, RequestJSON: json)
-            MainNotification.dismissNotification()
-        }
-        
     } else {
         //Not Finish
     }
