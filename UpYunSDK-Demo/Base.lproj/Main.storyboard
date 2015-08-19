@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UpYunSDK_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-g7-giJ">
+                                <rect key="frame" x="180" y="50" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Tu4-7X-gAD"/>
+                                    <constraint firstAttribute="width" constant="240" id="Xxi-uO-M9e"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-f7-FSm">
+                                <rect key="frame" x="270" y="208" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="选择图片"/>
+                                <connections>
+                                    <action selector="ChooseImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AJA-5R-hK3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwn-iN-qka">
+                                <rect key="frame" x="180" y="258" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="上传图片"/>
+                                <connections>
+                                    <action selector="UploadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdy-5A-z4S"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传进度" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqA-Of-H4V">
+                                <rect key="frame" x="180" y="308" width="48" height="14.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpt-Ek-nHX">
+                                <rect key="frame" x="246" y="308" width="174" height="14.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="H8E-aj-40s"/>
+                                    <constraint firstAttribute="height" constant="14.5" id="uaX-ki-0Rc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传结果" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acf-34-JwX">
+                                <rect key="frame" x="180" y="361" width="48" height="14.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-ae-QTY">
+                                <rect key="frame" x="360" y="258" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="浏览图片"/>
+                                <connections>
+                                    <action selector="DownloadAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ly9-Q8-HSM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6N-yq-zNp">
+                                <rect key="frame" x="246" y="361" width="174" height="14.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tqA-Of-H4V" firstAttribute="top" secondItem="Reo-g7-giJ" secondAttribute="bottom" constant="130" id="2fb-8B-rPE"/>
+                            <constraint firstItem="Reo-g7-giJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Kb-RT-nqK"/>
+                            <constraint firstItem="acf-34-JwX" firstAttribute="leading" secondItem="Reo-g7-giJ" secondAttribute="leading" id="4RQ-TP-EbN"/>
+                            <constraint firstItem="acf-34-JwX" firstAttribute="top" secondItem="tqA-Of-H4V" secondAttribute="bottom" constant="39" id="623-fl-xFD"/>
+                            <constraint firstItem="tqA-Of-H4V" firstAttribute="leading" secondItem="Reo-g7-giJ" secondAttribute="leading" id="8sq-jE-wXn"/>
+                            <constraint firstItem="Xpt-Ek-nHX" firstAttribute="leading" secondItem="tqA-Of-H4V" secondAttribute="trailing" constant="18" id="CMq-Jg-KRk"/>
+                            <constraint firstItem="NXl-f7-FSm" firstAttribute="top" secondItem="Reo-g7-giJ" secondAttribute="bottom" constant="30" id="EnY-9Z-2Qu"/>
+                            <constraint firstItem="fwn-iN-qka" firstAttribute="top" secondItem="NXl-f7-FSm" secondAttribute="bottom" constant="20" id="Itv-zx-Lsy"/>
+                            <constraint firstItem="NXl-f7-FSm" firstAttribute="centerX" secondItem="Reo-g7-giJ" secondAttribute="centerX" id="LNC-Hx-C8r"/>
+                            <constraint firstItem="Z6N-yq-zNp" firstAttribute="height" secondItem="Xpt-Ek-nHX" secondAttribute="height" id="MDR-bi-xmu"/>
+                            <constraint firstItem="eTn-ae-QTY" firstAttribute="top" secondItem="NXl-f7-FSm" secondAttribute="bottom" constant="20" id="UlL-rV-hXi"/>
+                            <constraint firstItem="Z6N-yq-zNp" firstAttribute="leading" secondItem="Xpt-Ek-nHX" secondAttribute="leading" id="Uqb-CQ-Sjj"/>
+                            <constraint firstItem="fwn-iN-qka" firstAttribute="leading" secondItem="Reo-g7-giJ" secondAttribute="leading" id="YLI-Sp-gR0"/>
+                            <constraint firstItem="Z6N-yq-zNp" firstAttribute="width" secondItem="Xpt-Ek-nHX" secondAttribute="width" id="Yjy-52-W8a"/>
+                            <constraint firstItem="eTn-ae-QTY" firstAttribute="trailing" secondItem="Reo-g7-giJ" secondAttribute="trailing" id="aSB-Qg-6yy"/>
+                            <constraint firstItem="Reo-g7-giJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="eOY-ns-tqD"/>
+                            <constraint firstItem="Z6N-yq-zNp" firstAttribute="top" secondItem="Xpt-Ek-nHX" secondAttribute="bottom" constant="38.5" id="eQa-f0-ylh"/>
+                            <constraint firstItem="Xpt-Ek-nHX" firstAttribute="centerY" secondItem="tqA-Of-H4V" secondAttribute="centerY" id="wf6-O2-8XW"/>
+                            <constraint firstItem="fwn-iN-qka" firstAttribute="centerX" secondItem="NXl-f7-FSm" secondAttribute="centerX" id="xfB-sP-1kc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xfB-sP-1kc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="UploadProgress" destination="Xpt-Ek-nHX" id="dEL-UE-Oes"/>
+                        <outlet property="UploadResault" destination="Z6N-yq-zNp" id="Wyz-9t-H7q"/>
+                        <outlet property="image" destination="Reo-g7-giJ" id="HgQ-ZL-5we"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="323"/>
+        </scene>
+    </scenes>
+</document>
