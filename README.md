@@ -9,7 +9,8 @@ Swift 2.0 环境下使用又拍云HTTP REST API的封装<br>
 ##使用说明
 上传初始化:<br>
 ```swift
-let upload: UPYUN = UPYUN(SpaceName: "空间名",OperatorName: "操作员名", OperatorPasswd: "操作员密码")
+let upload: UPYUN = UPYUN(SpaceName: "空间名", 
+  OperatorName: "操作员名", OperatorPasswd: "操作员密码")
 ```
 上传操作:(可上传多个图片)
 ```swift
