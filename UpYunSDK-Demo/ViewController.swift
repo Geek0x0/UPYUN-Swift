@@ -63,15 +63,17 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             })
             upload.uploadImages([uploadImage!], names: ["picture"],
                 uploadPath: "dir", imageCompressionQuality: 1)
+            self.pleaseWait()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 while true {
                     let Progress = self.upload.getUploadProgress()
                     if Progress >= 1 {
+                        self.clearAllNotice()
                         self.UploadProgress.text = "100%"
                         break
                     } else {
                         let showProgress: Double = Progress * 100
-                        print(Int(showProgress))
+                        //print(Int(showProgress))
                         self.UploadProgress.text = "\(showProgress)"
                     }
                     usleep(100)

@@ -16,6 +16,7 @@
 		789680101B8431AE00AC2D23 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789680051B84313A00AC2D23 /* Alamofire.framework */; };
 		789680111B8431AE00AC2D23 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 789680051B84313A00AC2D23 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7896801D1B845AFB00AC2D23 /* StringExrension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896801C1B845AFB00AC2D23 /* StringExrension.swift */; };
+		78FE1BA71B8EF601003C43C4 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE1BA61B8EF601003C43C4 /* SwiftNotice.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		7896800E1B84319000AC2D23 /* UpYunSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpYunSDK.swift; path = "UpYun-SDK/UpYunSDK.swift"; sourceTree = SOURCE_ROOT; };
 		7896801B1B845AFB00AC2D23 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "UpYun-SDK/Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		7896801C1B845AFB00AC2D23 /* StringExrension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExrension.swift; path = "UpYun-SDK/StringExrension.swift"; sourceTree = SOURCE_ROOT; };
+		78FE1BA61B8EF601003C43C4 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		78501FBB1B842E4600E2CD02 /* UpYunSDK-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				78FE1BA61B8EF601003C43C4 /* SwiftNotice.swift */,
 				7896801A1B845AAA00AC2D23 /* UpYunSDK */,
 				78967FFC1B84313A00AC2D23 /* Alamofire.xcodeproj */,
 				78501FBC1B842E4600E2CD02 /* AppDelegate.swift */,
@@ -276,6 +279,7 @@
 				78501FBF1B842E4600E2CD02 /* ViewController.swift in Sources */,
 				78501FBD1B842E4600E2CD02 /* AppDelegate.swift in Sources */,
 				7896801D1B845AFB00AC2D23 /* StringExrension.swift in Sources */,
+				78FE1BA71B8EF601003C43C4 /* SwiftNotice.swift in Sources */,
 				7896800F1B84319000AC2D23 /* UpYunSDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -100,9 +100,9 @@ class UPYUN: NSObject {
             
             var authorURL: String = ""
             if path.isEmpty {
-                authorURL = "/\(self.SpaceName)/\(name).jpeg"
+                authorURL = "/\(self.SpaceName)/\(name)"
             } else {
-                authorURL = "/\(self.SpaceName)/\(path)/\(name).jpeg"
+                authorURL = "/\(self.SpaceName)/\(path)/\(name)"
             }
             let uploadAuthor: String =
             CreateAuthorizationOperator("PUT", requestURL: authorURL,
@@ -150,6 +150,7 @@ class UPYUN: NSObject {
             authorization += passwdMD5
             //print(Authorization)
             /*MD5 ALL*/
+            if DEBUG { print("authorization : \(authorization)")}
             authorization = authorization.MD5
             if DEBUG { print("authorization to md5 : \(authorization)")}
             
