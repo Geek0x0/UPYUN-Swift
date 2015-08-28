@@ -21,6 +21,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let upload: UPYUN = UPYUN(SpaceName: "",
         OperatorName: "", OperatorPasswd: "")
     
+    private var updateTimer: NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,40 +47,29 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             completion: nil)
     }
     
-    func finish() {
-        self.UploadResault.text = "上传成功"
-    }
-    
-    func error() {
-        self.UploadResault.text = "上传失败"
+    @objc private func updateUploadProgress() {
+        let progress = self.upload.getUploadProgress()
+        if progress >= 1 {
+            self.clearAllNotice()
+            self.UploadProgress.text = "100%"
+            self.UploadResault.text = "上传成功"
+            self.updateTimer?.invalidate()
+        } else {
+            let showProgress: Double = progress * 100
+            self.UploadProgress.text = "\(Int(showProgress))%"
+        }
     }
     
     @IBAction func UploadImage(sender: UIButton) {
         
         if let _ = self.uploadImage {
-            upload.setNotification({ () -> Void in
-                self.finish()
-                }, errorAction: { () -> Void in
-                    self.error()
-            })
             upload.uploadImages([uploadImage!], names: ["picture"],
                 uploadPath: "dir", imageCompressionQuality: 1)
+            self.UploadResault.text = "正在上传..."
             self.pleaseWait()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                while true {
-                    let Progress = self.upload.getUploadProgress()
-                    if Progress >= 1 {
-                        self.clearAllNotice()
-                        self.UploadProgress.text = "100%"
-                        break
-                    } else {
-                        let showProgress: Double = Progress * 100
-                        //print(Int(showProgress))
-                        self.UploadProgress.text = "\(showProgress)"
-                    }
-                    usleep(100)
-                }
-            })
+            self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.01,
+                target: self, selector: Selector("updateUploadProgress"),
+                userInfo: nil, repeats: true)
         }
     }
     

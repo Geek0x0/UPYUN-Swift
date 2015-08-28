@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import Alamofire
 
 let DEBUG: Bool = false
 
 class UPYUN: NSObject {
     
     private let UploadURL: String = "http://v0.api.upyun.com"
+    
+    private var initSuccess: Bool = false
     
     /* 空间名、操作员名、操作员密码 */
     private var SpaceName: String
@@ -21,31 +22,43 @@ class UPYUN: NSObject {
     
     /* 计算上传进度相关 */
     private var totalSize: Int64 = 0
-    private var uploadSize: Int64 = 0
     private var uploadDataCount: Int = 0
     private var allUploadStatus: [Bool] = []
     
     private var _finish: (()->Void)?
     private var _error: (()->Void)?
+    private var uploadTask: NSURLSessionUploadTask?
     
     /* 初始化 */
     init(SpaceName: String, OperatorName: String, OperatorPasswd: String) {
-            self.SpaceName = SpaceName
-            self.OperatorName = OperatorName
-            self.OperatorPasswd = OperatorPasswd
+        self.SpaceName = SpaceName
+        self.OperatorName = OperatorName
+        self.OperatorPasswd = OperatorPasswd
+        
+        if SpaceName.isEmpty || OperatorName.isEmpty
+            || OperatorPasswd.isEmpty {
+                print("error, init UPYUN failed")
+                return
+        } else {
+            self.initSuccess = true
+        }
     }
     
     @objc private func finishAction(notification: NSNotification) {
-        
+        if DEBUG { print("upload success")}
         if let _ = self._finish {
-            self._finish!()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                 self._finish!()
+            })
         }
     }
     
     @objc private func errorAction(notification: NSNotification) {
-        
+        if DEBUG { print("upload error") }
         if let _ = self._error {
-            self._error!()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self._error!()
+            })
         }
     }
     
@@ -79,15 +92,16 @@ class UPYUN: NSObject {
     
     private func initUploadRecordData() {
         self.totalSize = 0
-        self.uploadSize = 0
         self.allUploadStatus = []
     }
     
     private func uploadCallBack() {
         if self.uploadDataCount == self.allUploadStatus.count {
-            for uploadStatus in self.allUploadStatus {
-                if !uploadStatus {
+            //finish all upload task
+            for var index = 0; index < self.allUploadStatus.count; index++ {
+                if !self.allUploadStatus[index] {
                     NSNotificationCenter.defaultCenter().postNotificationName("UPYUN_UploadError", object: nil)
+                    print("upload error, index \(index)", __FILE__, __LINE__)
                     return
                 }
             }
@@ -110,7 +124,7 @@ class UPYUN: NSObject {
             let uploadURLString: String =  "\(self.UploadURL)\(authorURL)"
             let uploadRequestURL: NSURL = NSURL(string: uploadURLString)!
             let uploadRequest: NSMutableURLRequest =
-                NSMutableURLRequest(URL: uploadRequestURL)
+            NSMutableURLRequest(URL: uploadRequestURL)
             uploadRequest.HTTPMethod = "PUT"
             uploadRequest.setValue(uploadDate, forHTTPHeaderField: "Date")
             uploadRequest.setValue("UpYun \(OperatorName):\(uploadAuthor)",
@@ -118,21 +132,16 @@ class UPYUN: NSObject {
             if !path.isEmpty {
                 uploadRequest.setValue("true", forHTTPHeaderField: "mkdir")
             }
-            Alamofire.upload(uploadRequest, data: UploadData)
-            .progress { (bytesWritten, totalBytesWritten, BytesOfExpected) -> Void in
-                self.uploadSize += bytesWritten
+            uploadTask = NSURLSession.sharedSession().uploadTaskWithRequest(uploadRequest,
+                fromData: UploadData) { (responseData, response, error) -> Void in
+                    if let httpResponse = response as? NSHTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            self.allUploadStatus.append(true)
+                        }
+                        self.uploadCallBack()
+                    } else { if DEBUG { print("response not NSHTTPURLResponse")} }
             }
-            .responseData { (request, response, responseData) -> Void in
-                if response?.statusCode == 200 {
-                    //Upload Success
-                    self.allUploadStatus.append(true)
-                } else {
-                    //Upload Failed
-                    self.allUploadStatus.append(true)
-                    //print(__FILE__, __LINE__, response)
-                }
-                self.uploadCallBack()
-            }
+            uploadTask!.resume()
     }
     
     private func CreateAuthorizationOperator(method: String,
@@ -172,9 +181,14 @@ class UPYUN: NSObject {
             }
             return (true, datas)
     }
-
+    
     internal func uploadImages(images: [UIImage], names: [String],
         uploadPath: String, imageCompressionQuality: CGFloat) -> Bool {
+            
+            if !self.initSuccess {
+                print("error, UPYUN not init success")
+                return false
+            }
             
             self.initUploadRecordData()
             if images.count != names.count { return false }
@@ -214,12 +228,12 @@ class UPYUN: NSObject {
             }
     }
     
-    
     internal func getUploadProgress() -> Double {
-        if self.uploadSize == 0 {
-            return 0
+        if let _ = self.uploadTask {
+            return (Double(self.uploadTask!.countOfBytesSent)
+                / Double(self.totalSize))
         } else {
-            return (Double(self.uploadSize) / Double(self.totalSize))
+            return 0
         }
     }
 }
