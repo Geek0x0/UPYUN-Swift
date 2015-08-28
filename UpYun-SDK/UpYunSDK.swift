@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-let DEBUG: Bool = true
+let DEBUG: Bool = false
 
 class UPYUN: NSObject {
     
@@ -139,7 +139,7 @@ class UPYUN: NSObject {
         requestURL: String, ContentLength: Int, AuthorDate: String) -> String {
             
             //MD5(METHOD & URL(/BUCKET/PATH/FILE) & DATE & CONTENT-LENGTH & MD5(PASSWORD))
-            let passwdMD5: String = OperatorPasswd.MD5
+            let passwdMD5: String = OperatorPasswd.MD5String()!
             if DEBUG { print("password to md5 : \(passwdMD5)")}
             
             /*Assembly ALL MESSAGE*/
@@ -151,7 +151,7 @@ class UPYUN: NSObject {
             //print(Authorization)
             /*MD5 ALL*/
             if DEBUG { print("authorization : \(authorization)")}
-            authorization = authorization.MD5
+            authorization = authorization.MD5String()!
             if DEBUG { print("authorization to md5 : \(authorization)")}
             
             return authorization
