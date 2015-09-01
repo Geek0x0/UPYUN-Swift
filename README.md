@@ -7,6 +7,10 @@ Swift 2.0 环境下使用又拍云HTTP REST API的封装<br>
 - Xcode 7.0 beta 6+
 
 ##使用说明
+使用SDK:<br>
+```swift
+import UpYunSDK
+```
 上传初始化:<br>
 ```swift
 let upload: UPYUN = UPYUN(SpaceName: "空间名", 
