@@ -12,11 +12,27 @@
 		78501FC21B842E4600E2CD02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78501FC01B842E4600E2CD02 /* Main.storyboard */; };
 		78501FC41B842E4600E2CD02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78501FC31B842E4600E2CD02 /* Assets.xcassets */; };
 		78501FC71B842E4600E2CD02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78501FC51B842E4600E2CD02 /* LaunchScreen.storyboard */; };
-		7894116D1B9002D600C40FC1 /* MD5+UPYUN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7894116C1B9002D600C40FC1 /* MD5+UPYUN.swift */; settings = {ASSET_TAGS = (); }; };
-		789411751B90030000C40FC1 /* String+UPYUN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789411741B90030000C40FC1 /* String+UPYUN.swift */; settings = {ASSET_TAGS = (); }; };
-		7896800F1B84319000AC2D23 /* UpYunSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896800E1B84319000AC2D23 /* UpYunSDK.swift */; };
+		7883E5261B95548200EE4C12 /* UpYunSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7883E5251B95547400EE4C12 /* UpYunSDK.framework */; };
+		7883E5271B95548200EE4C12 /* UpYunSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7883E5251B95547400EE4C12 /* UpYunSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78FE1BA71B8EF601003C43C4 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE1BA61B8EF601003C43C4 /* SwiftNotice.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7883E5241B95547400EE4C12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7883E5201B95547400EE4C12 /* UpYunSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7883E5041B95520E00EE4C12;
+			remoteInfo = UpYunSDK;
+		};
+		7883E5281B95548200EE4C12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7883E5201B95547400EE4C12 /* UpYunSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7883E5031B95520E00EE4C12;
+			remoteInfo = UpYunSDK;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		789680141B8431AE00AC2D23 /* Embed Frameworks */ = {
@@ -25,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7883E5271B95548200EE4C12 /* UpYunSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,9 +56,7 @@
 		78501FC31B842E4600E2CD02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78501FC61B842E4600E2CD02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78501FC81B842E4600E2CD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7894116C1B9002D600C40FC1 /* MD5+UPYUN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MD5+UPYUN.swift"; path = "UpYun-SDK/MD5+UPYUN.swift"; sourceTree = SOURCE_ROOT; };
-		789411741B90030000C40FC1 /* String+UPYUN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+UPYUN.swift"; path = "UpYun-SDK/String+UPYUN.swift"; sourceTree = SOURCE_ROOT; };
-		7896800E1B84319000AC2D23 /* UpYunSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpYunSDK.swift; path = "UpYun-SDK/UpYunSDK.swift"; sourceTree = SOURCE_ROOT; };
+		7883E5201B95547400EE4C12 /* UpYunSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UpYunSDK.xcodeproj; path = "UpYun-SDK/UpYunSDK.xcodeproj"; sourceTree = "<group>"; };
 		78FE1BA61B8EF601003C43C4 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7883E5261B95548200EE4C12 /* UpYunSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +75,7 @@
 		78501FB01B842E4500E2CD02 = {
 			isa = PBXGroup;
 			children = (
+				7883E5201B95547400EE4C12 /* UpYunSDK.xcodeproj */,
 				78501FBB1B842E4600E2CD02 /* UpYunSDK-Demo */,
 				78501FBA1B842E4600E2CD02 /* Products */,
 			);
@@ -82,19 +99,16 @@
 				78501FC31B842E4600E2CD02 /* Assets.xcassets */,
 				78501FC51B842E4600E2CD02 /* LaunchScreen.storyboard */,
 				78501FC01B842E4600E2CD02 /* Main.storyboard */,
-				7896801A1B845AAA00AC2D23 /* UpYunSDK */,
 			);
 			path = "UpYunSDK-Demo";
 			sourceTree = "<group>";
 		};
-		7896801A1B845AAA00AC2D23 /* UpYunSDK */ = {
+		7883E5211B95547400EE4C12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7894116C1B9002D600C40FC1 /* MD5+UPYUN.swift */,
-				7896800E1B84319000AC2D23 /* UpYunSDK.swift */,
-				789411741B90030000C40FC1 /* String+UPYUN.swift */,
+				7883E5251B95547400EE4C12 /* UpYunSDK.framework */,
 			);
-			name = UpYunSDK;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +126,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7883E5291B95548200EE4C12 /* PBXTargetDependency */,
 			);
 			name = "UpYunSDK-Demo";
 			productName = "UpYunSDK-Demo";
@@ -144,12 +159,28 @@
 			mainGroup = 78501FB01B842E4500E2CD02;
 			productRefGroup = 78501FBA1B842E4600E2CD02 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7883E5211B95547400EE4C12 /* Products */;
+					ProjectRef = 7883E5201B95547400EE4C12 /* UpYunSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				78501FB81B842E4600E2CD02 /* UpYunSDK-Demo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7883E5251B95547400EE4C12 /* UpYunSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UpYunSDK.framework;
+			remoteRef = 7883E5241B95547400EE4C12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		78501FB71B842E4600E2CD02 /* Resources */ = {
@@ -170,15 +201,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				78501FBF1B842E4600E2CD02 /* ViewController.swift in Sources */,
-				7894116D1B9002D600C40FC1 /* MD5+UPYUN.swift in Sources */,
-				789411751B90030000C40FC1 /* String+UPYUN.swift in Sources */,
 				78501FBD1B842E4600E2CD02 /* AppDelegate.swift in Sources */,
 				78FE1BA71B8EF601003C43C4 /* SwiftNotice.swift in Sources */,
-				7896800F1B84319000AC2D23 /* UpYunSDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7883E5291B95548200EE4C12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UpYunSDK;
+			targetProxy = 7883E5281B95548200EE4C12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		78501FC01B842E4600E2CD02 /* Main.storyboard */ = {

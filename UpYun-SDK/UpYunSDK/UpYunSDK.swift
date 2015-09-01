@@ -9,7 +9,7 @@ import UIKit
 
 let DEBUG: Bool = false
 
-class UPYUN: NSObject {
+public class UPYUN: NSObject {
     
     private let UploadURL: String = "http://v0.api.upyun.com"
     
@@ -30,7 +30,7 @@ class UPYUN: NSObject {
     private var uploadTask: NSURLSessionUploadTask?
     
     /* 初始化 */
-    init(SpaceName: String, OperatorName: String, OperatorPasswd: String) {
+    public init(SpaceName: String, OperatorName: String, OperatorPasswd: String) {
         self.SpaceName = SpaceName
         self.OperatorName = OperatorName
         self.OperatorPasswd = OperatorPasswd
@@ -48,7 +48,7 @@ class UPYUN: NSObject {
         if DEBUG { print("upload success")}
         if let _ = self._finish {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                 self._finish!()
+                self._finish!()
             })
         }
     }
@@ -62,7 +62,7 @@ class UPYUN: NSObject {
         }
     }
     
-    internal func setNotification(finishAction: (()->Void),
+    public func setNotification(finishAction: (()->Void),
         errorAction: (()->Void)) {
             
             NSNotificationCenter.defaultCenter().removeObserver(self,
@@ -182,7 +182,7 @@ class UPYUN: NSObject {
             return (true, datas)
     }
     
-    internal func uploadImages(images: [UIImage], names: [String],
+    public func uploadImages(images: [UIImage], names: [String],
         uploadPath: String, imageCompressionQuality: CGFloat) -> Bool {
             
             if !self.initSuccess {
@@ -216,7 +216,7 @@ class UPYUN: NSObject {
             }.resume()
     }
     
-    static func downloadImage(imageURL: String,
+    public static func downloadImage(imageURL: String,
         imageView: UIImageView?, waitView: UIView?) {
             if let url: NSURL = NSURL(string: imageURL) {
                 self.getDataFromUrl(url, completion: { (data) -> Void in
@@ -228,7 +228,7 @@ class UPYUN: NSObject {
             }
     }
     
-    internal func getUploadProgress() -> Double {
+    public func getUploadProgress() -> Double {
         if let _ = self.uploadTask {
             return (Double(self.uploadTask!.countOfBytesSent)
                 / Double(self.totalSize))
