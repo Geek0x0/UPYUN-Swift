@@ -1,5 +1,8 @@
 # UPYUN-Swift
 [![ghit.me](https://ghit.me/badge.svg?repo=caydyn-skd/UPYUN-Swift)](https://ghit.me/repo/caydyn-skd/UPYUN-Swift)
+[![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
+[![Issues](https://img.shields.io/github/issues/caydyn-skd/UPYUN-Swift.svg?style=flat)](https://github.com/caydyn-skd/UPYUN-Swift/issues)
 
 Swift 2.0 环境下使用又拍云HTTP REST API的封装<br>
 不依赖于其它第三方库<br>
