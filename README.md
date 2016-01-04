@@ -1,4 +1,6 @@
 # UPYUN-Swift
+[![ghit.me](https://ghit.me/badge.svg?repo=caydyn-skd/UPYUN-Swift)](https://ghit.me/repo/caydyn-skd/UPYUN-Swift)
+
 Swift 2.0 环境下使用又拍云HTTP REST API的封装<br>
 不依赖于其它第三方库<br>
 
