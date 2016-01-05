@@ -1,4 +1,5 @@
 # UPYUN-Swift
+[![WeiBo](http://img.shields.io/badge/contact-@Caydyn-orange.svg?style=flat)](http://weibo.com/372145087)
 [![ghit.me](https://ghit.me/badge.svg?repo=caydyn-skd/UPYUN-Swift)](https://ghit.me/repo/caydyn-skd/UPYUN-Swift)
 [![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
